@@ -1,0 +1,142 @@
+*{
+    font-family: sans-serif;
+ }   
+.container{
+    width: 100%;
+    padding:50px;
+    background-image: url(./../../../assets/img/Fondo.jpg);
+    margin-bottom: -65px;
+   
+
+}
+
+#botonEliminar{
+    width: 200px;
+    border-radius: 1em;
+    background-color: #f5993e;
+    color: #fff;
+    border:none;
+    text-decoration: none;
+   
+
+ }
+
+
+ #botonModificar{
+    width: 200px;
+    border-radius: 1em;
+    background-color: #5EC0CA;
+    color: #fff;
+    border:none;
+    text-decoration: none;
+ 
+ }
+ 
+
+ .boton{
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     gap: 50px;
+     margin-top: 20px;
+     margin-bottom: 40px;
+ }
+
+ h1{
+
+     font-size: 3em;
+     padding-top: 20px;
+     /* margin-top: 20px; */
+     /* text-align: center; */
+ }
+
+
+ h2{
+    margin-top: 40px;
+ }
+
+ table{
+   
+       width: 700px;
+       margin: auto;
+       margin-top: 20px;
+}
+
+table td{
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+table th{
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    padding-top: 40px;
+   
+    
+}
+
+hr{
+    border: 1px solid black;
+}
+
+img{
+    margin-top: 50px;
+    width: 300px;
+    height: 250px;
+    border-radius: 15px;
+      /* efectos */
+    overflow:hidden;
+}
+img:hover{
+    -webkit-transform:scale(1.2);transform:scale(1.2);
+     cursor: pointer;
+ }
+.info{
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   margin-top: 20px;
+   background-color: rgb(238, 238, 238);
+   padding: 10px;
+   border-radius: 1em;
+}
+
+#imagenInfo{
+    width: 200px;
+    height: 200px;
+    
+    margin-top: 0;
+}
+
+.fotos{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+
+}
+
+.descripcion{
+    text-align: justify;
+    margin-top: 80px;
+}
+
+@media all and (max-width: 978px){
+
+    .fotos{
+        display: flex;
+        align-items: center;
+       flex-direction: column;
+       gap: 1px;
+
+ }
+
+ @media all and (max-width: 606px){
+
+    #imagenInfo{
+        display: none;
+    }
+ }
+}

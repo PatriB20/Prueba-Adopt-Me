@@ -1,0 +1,225 @@
+<div class="contenedor" style="background-image: url(./../../../assets/img/Fondo.jpg);">
+    <!-- Contenedor izquierdo -->
+    <div class="izquierda">
+        <!-- Imagen -->
+        <div class="imagen">
+            <img src="./../../../assets/img/Página registro/Husky siberiano.jpg" style="width: 40vw; height: 90vh; border-radius: 1em;">
+        </div>
+    </div>
+    <!-- Contenedor derecho -->
+    <div class="derecha">
+        <h1 style="text-align: center;">Bienvenido</h1>
+        <!-- Checkbox para decidir tipo de usuario -->
+        <!-- <h3 style="text-align: center">¿Qué tipo de usuario eres?</h3> -->
+        <div class="checkbox-tipoUsuario">
+            <div class="form-check" style="margin-right: 10%;">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="usuarioAdoptante()">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Adoptante
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="usuarioProtectora()">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Protectora
+                </label>
+            </div>
+        </div>
+        <!-- Formulario de usuario -->
+        <div class="registro-usuario" *ngIf="esProtectora != true" style="background-color: transparent;">
+            <form #usuarioForm="ngForm" (ngSubmit)="onSubmit(usuarioForm)">
+                <!-- Nombre del usuario -->
+                <div class="form-group" id="nombre-usuario">
+                    <label style="margin-bottom: 1%;">Nombre</label>
+                    <input id="input-usuarioNombre" type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre" #nombre="ngModel"
+                    [ngClass]="{'is-invalid': (nombre.dirty || nombre.touched) && nombre.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid">
+                        <p *ngIf="nombre.errors?.['required']">El nombre es obligatorio</p>
+                    </div>
+                </div>
+                <!-- Apellidos del usuario -->
+                <div class="form-group" id="apellidos-usuario">
+                    <label style="margin-bottom: 1%;">Apellidos</label>
+                    <input id="input-usuarioApellidos" type="text" name="apellidos" class="form-control" [(ngModel)]="usuario.apellidos" #apellidos="ngModel"
+                    [ngClass]="{'is-invalid': (apellidos.dirty || apellidos.touched) && apellidos.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(apellidos.dirty || apellidos.touched) && apellidos.invalid">
+                        <p *ngIf="apellidos.errors?.['required']">Debes introducir los apellidos</p>
+                    </div>
+                </div>
+                <!-- Fecha de nacimiento -->
+                <div class="form-group" id="fechaNacimiento-usuario">
+                    <label style="margin-bottom: 1%;">Fecha de nacimiento</label>
+                    <input id="input-usuarioFechaNacimiento" type="date" name="fechaNacimiento" class="form-control" [(ngModel)]="usuario.fechaNacimiento" #fechaNacimiento="ngModel"
+                    [ngClass]="{'is-invalid': (fechaNacimiento.dirty || fechaNacimiento.touched) && fechaNacimiento.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(fechaNacimiento.dirty || fechaNacimiento.touched) && fechaNacimiento.invalid">
+                        <p *ngIf="fechaNacimiento.errors?.['required']">Debes introducir una fecha de nacimiento</p>
+                    </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="form-group" id="telefono-usuario">
+                    <label style="margin-bottom: 1%;">Teléfono</label>
+                    <input id="input-usuarioTelefono" type="tel" name="telefono" class="form-control" [(ngModel)]="usuario.telefono" #telefono="ngModel"
+                    [ngClass]="{'is-invalid': (telefono.dirty || telefono.touched) && telefono.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(telefono.dirty || telefono.touched) && telefono.invalid">
+                        <p *ngIf="telefono.errors?.['required']">Debes introducir un número de teléfono</p>
+                    </div>
+                </div>
+                <!-- Correo electrónico -->
+                <div class="form-group" id="email-usuario">
+                    <label style="margin-bottom: 1%;">Correo electrónico</label>
+                    <input id="input-usuarioEmail" type="email" name="email" class="form-control" [(ngModel)]="usuario.email" #email="ngModel"
+                    [ngClass]="{'is-invalid': (email.dirty || email.touched) && email.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(email.dirty || email.touched) && email.invalid">
+                        <p *ngIf="email.errors?.['required']">Debes introducir un correo electrónico válido</p>
+                    </div>
+                </div>
+                <!-- Contraseña -->
+                <div class="form-group" id="password-usuario">
+                    <label style="margin-bottom: 1%;">Contraseña</label>
+                    <input id="input-usuarioPassword" type="password" name="password" class="form-control" [(ngModel)]="usuario.password" #password="ngModel"
+                    [ngClass]="{'is-invalid': (password.dirty || password.touched) && password.invalid}" required minlength="8">
+                    <div class="invalid-feedback" *ngIf="(password.dirty || password.touched) && password.invalid">
+                        <p *ngIf="password.errors?.['required']">Debes introducir una contraseña</p>
+                        <p *ngIf="password.errors?.['minlength']">La contraseña debe contener 8 dígitos como mínimo</p>
+                    </div>
+                </div>
+                <!-- Confirmar contraseña -->
+                <div class="form-group" id="password-usuario">
+                    <label style="margin-bottom: 1%;">Confirma la contraseña</label>
+                    <input id="input-usuarioPassword" type="password" name="password" class="form-control" [(ngModel)]="usuario.password" #password="ngModel"
+                    [ngClass]="{'is-invalid': (password.dirty || password.touched) && password.invalid}" required minlength="8">
+                    <div class="invalid-feedback" *ngIf="(password.dirty || password.touched) && password.invalid">
+                        <p *ngIf="password.errors?.['required']">Debes introducir una contraseña</p>
+                        <p *ngIf="password.errors?.['minlength']">La contraseña debe contener 8 dígitos como mínimo</p>
+                    </div>
+                </div>
+                <!-- Localidad -->
+                <div class="form-group" id="localidad-usuario">
+                    <label style="margin-bottom: 1%;">Localidad</label>
+                    <input id="input-usuarioLocalidad" type="text" name="localidad" class="form-control" [(ngModel)]="usuario.localidad" #localidad="ngModel"
+                    [ngClass]="{'is-invalid': (localidad.dirty || localidad.touched) && localidad.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(localidad.dirty || localidad.touched) && localidad.invalid">
+                        <p *ngIf="localidad.errors?.['required']">Debes introducir una localidad</p>
+                    </div>
+                </div>
+                <!-- Dirección -->
+                <div class="form-group" id="direccion-usuario">
+                    <label style="margin-bottom: 1%;">Dirección</label>
+                    <input id="input-usuarioDireccion" type="text" name="direccion" class="form-control" [(ngModel)]="usuario.direccion" #direccion="ngModel"
+                    [ngClass]="{'is-invalid': (direccion.dirty || direccion.touched) && direccion.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid">
+                        <p *ngIf="direccion.errors?.['required']">Debes introducir una dirección</p>
+                    </div>
+                </div>
+                <!-- Checkbox de mostrar contraseña -->
+                <div class="mostrar-pass">
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                            </label>
+                          </div>
+                    </form>
+                </div>
+                <!-- Botón de registro -->
+                <div class="boton">
+                    <div class="form-group" id="contenedor-boton">
+                        <button id="boton" class="btn btn-primary btn-block">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Formulario de protectora -->
+        <div class="registro-protectora" *ngIf="esProtectora == true" style="background-color: transparent;">
+            <form #protectoraForm="ngForm" (ngSubmit)="onSubmit(protectoraForm)">
+                <div class="protectoraColumna-1">
+                    <!-- Nombre de la protectora -->
+                    <div class="form-group" id="nombre-protectora">
+                        <label style="margin-bottom: 1%;">Nombre de la protectora</label>
+                        <input id="input-protectoraNombre" type="text" name="nombre" class="form-control" [(ngModel)]="protectora.nombre" #nombre="ngModel"
+                        [ngClass]="{'is-invalid': (nombre.dirty || nombre.touched) && nombre.invalid}" required>
+                        <div class="invalid-feedback" *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid">
+                            <p *ngIf="nombre.errors?.['required']">El nombre de la protectora es obligatorio</p>
+                        </div>
+                    </div>
+                    <!-- Dirección -->
+                    <div class="form-group" id="direccion-protectora">
+                        <label style="margin-bottom: 1%;">Dirección</label>
+                        <input id="input-protectoraDireccion" type="text" name="direccion" class="form-control" [(ngModel)]="protectora.direccion" #direccion="ngModel"
+                        [ngClass]="{'is-invalid': (direccion.dirty || direccion.touched) && direccion.invalid}" required>
+                        <div class="invalid-feedback" *ngIf="(direccion.dirty || direccion.touched) && direccion.invalid">
+                            <p *ngIf="direccion.errors?.['required']">La dirección de la protectora es obligatoria</p>
+                        </div>
+                    </div>
+                    <!-- Localidad -->
+                    <div class="form-group" id="localidad-protectora">
+                        <label style="margin-bottom: 1%;">Localidad</label>
+                        <input id="input-protectoraLocalidad" type="text" name="localidad" class="form-control" [(ngModel)]="protectora.localidad" #localidad="ngModel"
+                        [ngClass]="{'is-invalid': (localidad.dirty || localidad.touched) && localidad.invalid}" required>
+                        <div class="invalid-feedback" *ngIf="(localidad.dirty || localidad.touched) && localidad.invalid">
+                            <p *ngIf="localidad.errors?.['required']">La localidad es obligatoria</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Teléfono -->
+                <div class="form-group" id="telefono-protectora">
+                    <label style="margin-bottom: 1%;">Teléfono de contacto</label>
+                    <input id="input-protectoraTelefono" type="text" name="telefono" class="form-control" [(ngModel)]="protectora.telefono" #telefono="ngModel"
+                    [ngClass]="{'is-invalid': (telefono.dirty || telefono.touched) && telefono.invalid}" required>
+                    <div class="invalid-feedback" *ngIf="(telefono.dirty || telefono.touched) && telefono.invalid">
+                        <p *ngIf="telefono.errors?.['required']">El teléfono es obligatorio</p>
+                    </div>
+                </div>
+                <div class="protectoraColumna-2">
+                    <!-- Correo electrónico -->
+                    <div class="form-group" id="email-protectora">
+                        <label style="margin-bottom: 1%;">Correo electrónico</label>
+                        <input id="input-protectoraEmail" type="email" name="email" class="form-control" [(ngModel)]="protectora.email" #email="ngModel"
+                        [ngClass]="{'is-invalid': (email.dirty || email.touched) && email.invalid}" required>
+                        <div class="invalid-feedback" *ngIf="(email.dirty || email.touched) && email.invalid">
+                            <p *ngIf="email.errors?.['required']">Debes introducir un correo electrónico válido</p>
+                        </div>
+                    </div>
+                    <!-- Contraseña -->
+                    <div class="form-group" id="password-protectora">
+                        <label style="margin-bottom: 1%;">Contraseña</label>
+                        <input id="input-protectoraPassword" type="password" name="password" class="form-control" [(ngModel)]="protectora.password" #password="ngModel"
+                        [ngClass]="{'is-invalid': (password.dirty || password.touched) && password.invalid}" required minlength="8">
+                        <div class="invalid-feedback" *ngIf="(password.dirty || password.touched) && password.invalid">
+                            <p *ngIf="password.errors?.['required']">Debes introducir una contraseña</p>
+                            <p *ngIf="password.errors?.['minlength']">La contraseña debe contener 8 dígitos como mínimo</p>
+                        </div>
+                    </div>
+                    <!-- Confirmar contraseña -->
+                    <div class="form-group" id="password-protectora">
+                        <label style="margin-bottom: 1%;">Confirma la contraseña</label>
+                        <input id="input-protectoraPassword" type="password" name="password" class="form-control" [(ngModel)]="protectora.password" #password="ngModel"
+                        [ngClass]="{'is-invalid': (password.dirty || password.touched) && password.invalid}" required minlength="8">
+                        <div class="invalid-feedback" *ngIf="(password.dirty || password.touched) && password.invalid">
+                            <p *ngIf="password.errors?.['required']">Debes introducir una contraseña</p>
+                            <p *ngIf="password.errors?.['minlength']">La contraseña debe contener 8 dígitos como mínimo</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Checkbox de mostrar contraseña -->
+                <div class="mostrar-pass">
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                            </label>
+                          </div>
+                    </form>
+                </div>
+                <div class="boton">
+                    <!-- Botón de registro -->
+                    <div class="form-group" id="contenedor-boton">
+                        <button id="boton" class="btn btn-primary btn-block">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

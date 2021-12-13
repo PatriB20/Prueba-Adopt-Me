@@ -1,0 +1,32 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+  .logo {
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  .rutas {
+    display: flex;
+    flex-direction: column;
+  }
+
+    .ruta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2%;
+    }
+
+    .ruta:hover {
+      background-color: #5EC0CA;
+      border-radius: 5em 0 0 5em;
+    }
+
+a {
+  text-decoration: none;
+  color: black;
+}

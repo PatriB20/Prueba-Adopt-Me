@@ -1,0 +1,143 @@
+<div class="container">
+    <h1>Modificar Animal</h1>
+    <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
+         
+      <div class="row">
+        <!--Input nombre-->
+         <div class="col">
+           <div class="form-group">
+               <label>Nombre</label>
+               <input type="text"  class="redondeado" name="nombre"  placeholder="Nombre" #nombre>
+              
+           </div>
+         </div>
+
+          <!--Input raza-->
+         <div class="col">
+           <div class="form-group">
+               <label>Raza</label>
+               <input type="text"  class="redondeado" name="raza"   placeholder="Raza" #raza>
+           </div>
+         </div>
+
+
+       <div class="col">
+         <div class="form-group">
+             <label>Sexo</label><br>
+             <select id="genero"  class="redondeado" type="radio" name="genero"  #sexo>
+             <option value="" disabled selected>Selecciona género</option>
+                 <option value="macho">Macho</option> 
+                 <option value="hembra">Hembra</option> 
+             </select>  
+             
+         </div>
+     </div>
+   </div>
+
+
+       <div class="row">
+         <!--input tamaño-->
+        <div class="col">
+        <div class="form-group">
+           <label>Tamaño</label><br>
+        
+
+
+        <select id="tamanyo"  class="redondeado" type="radio" name="tamanyo"  #tamanyo>
+        <option value="" disabled selected>Selecciona tamaño</option>
+            <option value="pequeño">Pequeño</option> 
+            <option value="mediano">Mediano</option> 
+            <option value="grande">Grande</option> 
+        </select>
+       
+    </div>
+</div>
+
+          <!--ILista desplegable tipo animal-->
+         <div class="col">
+           <div class="form-group">
+           <label>Tipo de Animal</label><br>
+           <select id="tipoAnimal"  class="redondeado" name="tipo" #tipo>
+             <option value="" disabled selected>Selecciona tipo</option>
+             <option value="perro">Perro</option> 
+             <option value="gato">Gato</option> 
+          </select>
+        
+     </div>
+   </div>
+     
+     
+          <!--Input fecha ingreso-->
+         <div class="col">
+           <div class="form-group">
+             <label for="start">Ingreso:</label><br>
+             <input type="date" id="start" name="fechaIngreso"  class="redondeado"
+                    value=""
+                    min="2018-01-01" max="2021-12-31"
+                   #fecha_ingresso> 
+                   
+          </div>
+         </div> 
+       </div> 
+        
+         <!--estado-->
+         <div class="row">
+         <div class="col">
+           <div class="form-group">
+           <label>Estado</label><br>
+           <select id="estadoAnimal"  class="redondeado" name="estadoAnimal" #estado>
+             <option value="" disabled selected>Selecciona estado</option>
+             <option value="adoptado">adoptado</option> 
+             <option value="adopcion">adopcion</option> 
+             <option value="acogina">acogida</option> 
+             <option value="otros">otros</option> 
+          </select>
+        
+     </div>
+   </div>
+
+   <!--Input Imágenes-->
+   <div class="col">
+    <div class="form-group">
+        <label>Imagen</label>
+        <input type="text"  class="redondeado" name="imagen"  placeholder="Imagen" #imagen>
+
+    </div>
+  </div>
+
+
+
+         <!--id Protectora-->
+         <!-- <div class="col-sm-8"></div> -->
+         <div class="col">
+           <div class="form-group">
+              <label>ID Protectora</label><br>
+           <input type="text"  class="redondeado" name="idProtectora" placeholder="ID Protectora" #idProtectora>
+          
+       </div>
+   </div>
+ </div>
+
+       <div class="row">
+            <!--Textarea detalles-->
+           <div class="col">
+         <label>Detalles</label><br>
+         <textarea class="form-control" id="detalles" #detalle></textarea>
+       </div>   
+   </div>
+
+
+<!--borrar-->
+<div class="col-sm-8">
+  <div class="form-group">
+     <label>ID </label><br>
+  <input type="text"  class="redondeado" name="idAnimal" placeholder="ID animal" #idAnimal>
+ 
+</div>
+</div>
+
+
+<button type="reset" class="btn btn-primary btn-block"  id="botonModificar" (click) = "editarAnimal(idAnimal.value, nombre.value, raza.value, sexo.value, tamanyo.value, tipo.value, fecha_ingresso.value, estado.value, imagen.value, idProtectora.value, detalle.value)">Guardar</button> 
+
+  </form>
+  </div>

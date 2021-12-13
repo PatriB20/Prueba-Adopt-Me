@@ -1,0 +1,78 @@
+.contenedor {
+  display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+  .datos {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+    .dato1 {
+      display: flex;
+      flex-direction: row;
+      width: 20em;
+      height: 10em;
+      align-items: center;
+      background: linear-gradient(70deg, rgb(212, 212, 212), #5EC0CA);
+      border-radius: 1em;
+    }
+
+    .dato2 {
+      display: flex;
+      flex-direction: row;
+      width: 20em;
+      height: 10em;
+      align-items: center;
+      background: linear-gradient(70deg, #5EC0CA, rgb(212, 212, 212));
+      border-radius: 1em;
+    }
+
+      .informacion {
+        display: flex;
+        flex-direction: column;
+        width: 15em;
+        height: 5em;
+        justify-content: flex-start;
+      }
+
+  .estadisticas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
+
+    .adoptados {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 25em;
+      height: 25em;
+      background-color: transparent;
+      border-radius: 1em;
+      margin-top: 10%;
+    }
+
+      .numero {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+    .estado {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5%;
+      width: 25em;
+      height: 25em;
+      background-color: transparent;
+      border-radius: 1em;
+    }

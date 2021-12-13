@@ -1,0 +1,73 @@
+<div class="container">
+    <h1>Lista de animales</h1>
+    <div class="formulario">
+        
+        
+             <!--Input nombre-->
+             <div class="clase1" > 
+                <div class="form-group" >
+                    <label style="margin-left: 10px;">Nombre</label>
+                    <input type="text"  class="redondeado" #nombre>
+              </div>
+                 <!--Lista desplegable genero-->
+                
+            <div class="form-group" style="margin-left: 10px;">
+                <label style="margin-left: 10px;">Sexo</label><br>
+                <select id="genero" style="background-color: white;" class="redondeado" type="radio" name="genero" #sexo>
+                    <option value=""  selected>Selecciona género</option>
+                    <option value="macho">Macho</option> 
+                    <option value="hembra">Hembra</option> 
+                </select>
+            </div>
+        
+        
+               <!--ILista desplegable tipo animal-->
+              
+                <div class="form-group" style="margin-left: 10px;">
+                    <label style="margin-left: 10px;">Tipo de Animal</label><br>
+                    <select id="tipoAnimal" style="background-color: white;" class="redondeado" name="tipoAnimal" #tipo_animal>
+                        <option value=""  selected>Selecciona tipo</option>
+                        <option value="perro">Perro</option> 
+                        <option value="gato">Gato</option>
+                        <option value="roedores">Roedores</option>
+                        <option value="otros">Otros</option>  
+                    </select>
+                </div>
+             
+
+               <!--Input fecha ingreso-->
+              
+                <div class="form-group" style="margin-left: 10px;">
+                  <label for="start" style="margin-left: 10px;">Ingreso:</label><br>
+                  <input type="date" id="start" name="fecha_ingreso"  class="redondeado" value="" min="2018-01-01" max="2021-12-31"
+                  #fecha_ingresso>  
+                </div>
+                
+               
+        </div>
+      <!--Botón enviar-->
+      <div class="botondiv">
+        <div class="row" >
+            <div class="col"class="botosposicion" >
+                <button type="submit" id="botonEnviar" (click) = "mostrar(nombre.value, sexo.value, tipo_animal.value, fecha_ingresso.value)">Buscar</button>
+            </div>
+        </div>
+     </div>
+
+    </div>
+
+
+<div class="row">
+    <div *ngFor="let anim of animales" class="col-3">
+        
+        <figure>
+        
+        <img src="{{anim.imagen}}" class="imagen">
+        <figcaption style="font-weight: bold;">{{anim.nombre}}</figcaption>
+    </figure>
+    </div>
+</div>
+
+
+</div>
+

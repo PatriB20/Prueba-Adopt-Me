@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Perfil</h1>
+  
+    <h2>King</h2>
+<div class="info">
+    <img id="imagenInfo" src="../../../assets/perro5.jpg">
+    <table>
+        <thead>
+            <tr>
+                <th>Tamaño</th>
+                <th>Raza</th>
+                <th>Sexo</th>      
+                <th>Género</th>
+                <th>Ingreso</th>
+            
+            </tr>
+        </thead>
+    <tbody>
+    <ng-container  *ngIf="animal!=null">
+        <tr>
+            <td>{{animal.tamanyo}}</td>
+            <td>{{animal.raza}}</td>
+            <td>{{animal.sexo}}</td>
+            <td>{{animal.fecha_ingresso}}</td>
+           
+        </tr>
+    </ng-container>
+        </tbody>
+    </table>
+</div>
+<div class="boton">
+     <a type="reset" class="form-control" id="botonModificar" routerLink="/chat" style="text-align: center; ">Adopt-Me</a>
+</div>
+    <hr>
+    <div class="descripcion">
+        {{animal.descripcion}}
+    </div>
+    <div class="fotos">
+        <img src="../../../assets/perro5.jpg">
+        <img src="../../../assets/perro4.jpg">
+        <img src="../../../assets/perro3.jpg">
+    </div>
+</div>
+
+
+

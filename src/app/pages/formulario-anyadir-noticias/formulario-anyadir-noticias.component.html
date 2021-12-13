@@ -1,0 +1,100 @@
+<div class="container">
+    <h1>Añadir Noticias</h1>
+    <form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank" #anyadirNoticia="ngForm" (ngSubmit)="onSubmit(anyadirNoticia)">
+
+
+         <!--Input titular-->
+          <div class="row">
+              <div class="col">
+                <div class="form-group">
+                <label>Titular</label><br>
+                <input type="text"  class="redondeado" name="titular" [(ngModel)]="noticia.titular" #titular="ngModel" placeholder="Titular"
+                [ngClass]="{'is-invalid': anyadirNoticia.submitted && titular.invalid}" required>
+                <div class="invalid-feedback" *ngIf="anyadirNoticia.submitted && titular.invalid">
+                    <p *ngIf="titular.errors?.['required']">El titular es obligatorio</p>
+                   </div>
+              </div>
+              </div>
+
+                <!--Lista desplegable categoria-->
+              <div class="col">
+                <div class="form-group">
+                <label>Categoría</label><br>
+                <select name="categoria" class="redondeado" [(ngModel)]="noticia.categoria" #categoria="ngModel"
+                [ngClass]="{'is-invalid': anyadirNoticia.submitted && categoria.invalid}" style="background-color: white;" required>
+                <option value="" disabled selected>Selecciona la categoría</option>
+                    <option value="urgente">Urgente</option>
+                    <option value="destacado">Destacado</option>
+                    <option value="Lo último">Lo último</option>
+                    <option value="otros">Otros</option>
+                 </select>
+                 <div class="invalid-feedback" *ngIf="anyadirNoticia.submitted  && categoria.invalid">
+                    <p *ngIf="categoria.errors?.['required']">Debes elegir una categoría</p>
+                </div>
+              </div>
+              </div>
+
+                <!--Lista desplegable de prioridad de la noticia-->
+              <div class="col">
+                <div class="form-group">
+                <label>Prioridad de la noticia</label><br>
+                <select name="prioridad" class="redondeado" [(ngModel)]="noticia.prioridad" #prioridad="ngModel"
+                [ngClass]="{'is-invalid': anyadirNoticia.submitted && prioridad.invalid}" style="background-color: white;"required>
+                <option value="" disabled selected>Selecciona la prioridad</option>
+                    <option value="muy importante">Muy importante</option>
+                    <option value="importante">Importante</option>
+                    <option value="normal">Normal</option>
+                    <option value="4no importante">No importante</option>
+                 </select>
+                 <div class="invalid-feedback" *ngIf="anyadirNoticia.submitted  && prioridad.invalid">
+                    <p *ngIf="prioridad.errors?.['required']">Debes elegir una prioridad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--fecha de la noticia-->
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="start">Fecha de la noticia</label><br>
+
+                  <input type="date" id="noticia" name="fecha_publicacion" class="redondeado"
+                         value="2021-11-29"
+                         min="2018-01-01" max="2021-12-31"
+                         [(ngModel)]="noticia.fecha_publicacion" #fecha_publicacion="ngModel"
+                         [ngClass]="{'is-invalid': anyadirNoticia.submitted && fecha_publicacion.invalid}" required>
+                         <div class="invalid-feedback" *ngIf="anyadirNoticia.submitted && fecha_publicacion.invalid">
+                            <p *ngIf="fecha_publicacion.errors?.['required']">Introduce la fecha de la noticia</p>
+                        </div>
+              </div>
+            </div>
+
+            <div class="col-sm-8">
+              <div class="form-group">
+                  <label>Imagen</label>
+                  <input type="text"  class="redondeado" name="imagen" [(ngModel)]="noticia.imagen" #imagen="ngModel" placeholder="Imagen" #image
+                  [ngClass]="{'is-invalid': anyadirNoticia.submitted && imagen.invalid}" required>
+                  <div class="invalid-feedback" *ngIf="anyadirNoticia.submitted && imagen.invalid">
+                      <p *ngIf="imagen.errors?.['required']">La imagen es obligatoria</p>
+                     </div>
+              </div>
+            </div>
+            </div>
+
+            <div class="row">
+                <!--Textarea detalles-->
+               <div class="col">
+             <label>Descripcion</label><br>
+             <textarea class="form-control" id="descripcion" name="descripcion" [(ngModel)]="noticia.descripcion" #descripcion="ngModel"
+             ></textarea>
+           </div>
+       </div>
+
+   
+       
+      
+    <button type="submit" class="btn btn-primary btn-block"  id="botonEnviar" (click)="onSubmit">Guardar</button>
+  
+</form>
+</div>
