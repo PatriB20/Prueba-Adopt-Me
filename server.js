@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-app.use (express.static(__dirname + '/dist/adoptme3'));
+app.use (express.static(__dirname + '/dist/adopt-me'));
 
 app.get('/*', function(req,res){
     res.sendFile("index.html",{
-        root: __dirname + '/dist/adopme3'
+        root: __dirname + '/dist/adopt-me'
     });
 });
 
