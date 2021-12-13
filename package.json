@@ -10,6 +10,10 @@
     "lint": "ng lint",
     "e2e":"ng e2e"
   },
+  "repository": {
+    "type": "git",
+   "url": "git+https://github.com/PatriB20/Prueba-Adopt-Me.git"
+  },
   "private": true,
   "dependencies": {
     "@angular-material-components/file-input": "^7.0.1",
